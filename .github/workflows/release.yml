@@ -33,10 +33,10 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: GlamApply-release-${{ github.sha }}
+          name: SmartStrafe-release-${{ github.sha }}
           path: |
-            GlamApply/bin/x64/Release
-            !GlamApply/bin/x64/Release/GlamApply
+            SmartStrafe/bin/x64/Release
+            !SmartStrafe/bin/x64/Release/SmartStrafe
 
       - name: Create Release
         id: create_release
@@ -45,7 +45,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: GlamApply ${{ github.ref }}
+          release_name: SmartStrafe ${{ github.ref }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
@@ -55,8 +55,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./GlamApply/bin/x64/Release/GlamApply/latest.zip
-          asset_name: GlamApply.zip
+          asset_path: ./SmartStrafe/bin/x64/Release/SmartStrafe/latest.zip
+          asset_name: SmartStrafe.zip
           asset_content_type: application/zip
 
       - name: Write out repo.json
