@@ -9,7 +9,7 @@ namespace SmartStrafe
     public class Plugin : IDalamudPlugin
     {
         public static readonly string Version =
-            Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "0.1.0.0";
+            Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "0.1.0.1";
 
         public string Name => "SmartStrafe";
         private readonly IPluginLog m_logger;
